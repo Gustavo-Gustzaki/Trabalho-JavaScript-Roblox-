@@ -33,6 +33,7 @@ async function executar() {
 
             if (listaEspada.length === 0){
                 console.log("Espadas indisponiveis...")
+                
             }
             else{
                 console.clear();
@@ -112,10 +113,14 @@ async function executar() {
                 if (quantidadeCadastro === "1"){
 
                 console.clear();
-                    
-                let nomeEspada = await rl.question("Qual o nome da Espada? \n");
-                let preco = Number(await rl.question("Qual é o preço da espada?\n"));
-                let estoque = Number(await rl.question("Quantidade de espadas no estoque?\n"));
+                
+                console.log("----------------------------------")
+                let nomeEspada = await rl.question("Qual o nome da Espada? ");
+                console.log("----------------------------------")
+                let preco = Number(await rl.question("Qual é o preço da espada? "));
+                console.log("----------------------------------")
+                let estoque = Number(await rl.question("Quantidade de espadas no estoque? "));
+                console.log("----------------------------------")
 
                 listaEspada.push (nomeEspada);
                 precoEspada.push (preco);
@@ -124,7 +129,7 @@ async function executar() {
 
                 await pausar();}
 
-                else{
+                else if (quantidadeCadastro === "5") {
 
                     console.clear();
                     
@@ -132,9 +137,13 @@ async function executar() {
 
                         console.clear();
 
-                        let nomeEspada = await rl.question("Qual o nome da Espada? \n");
-                        let preco = Number(await rl.question("Qual é o preço da espada?\n"));
-                        let estoque = Number(await rl.question("Quantidade de espadas no estoque\n"));
+                        console.log("----------------------------------")
+                        let nomeEspada = await rl.question("Qual o nome da Espada? ");
+                        console.log("----------------------------------")
+                        let preco = Number(await rl.question("Qual é o preço da espada? "));
+                        console.log("----------------------------------")
+                        let estoque = Number(await rl.question("Quantidade de espadas no estoque: "));
+                        console.log("----------------------------------")
 
                         listaEspada.push (nomeEspada);
                         precoEspada.push (preco);
@@ -148,7 +157,9 @@ async function executar() {
                 }
             }
             else if (escolha === "3") {
+                console.log("======SALDO DA CONTA======")
                 console.log("Saldo da conta: "+saldoConta.toFixed(2));
+                console.log("--------------------------")
                 await pausar();
             }
             else if (escolha === "4"){
