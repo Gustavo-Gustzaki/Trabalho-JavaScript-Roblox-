@@ -96,7 +96,7 @@ async function executar() {
                         }
                     }
                     else {
-                        await pausar();
+                        console.log("Até logo Mestre...")
                     }
             }
             await pausar();
@@ -106,9 +106,21 @@ async function executar() {
             console.clear();
             console.log("===CADASTROS DE ESPADAS===")
             desejaCadastrarEspada = await rl.question("Deseja cadastrar espadas?(sim/não) ");
+            while (desejaCadastrarEspada !== "sim" && desejaCadastrarEspada !== "Sim" && desejaCadastrarEspada !== "S" && desejaCadastrarEspada !== "s" && desejaCadastrarEspada !== "não" && desejaCadastrarEspada !== "Não" && desejaCadastrarEspada !== "Nao" && desejaCadastrarEspada !== "nao"){
+
+                console.log("[ERRO] Digite novamente!")
+                desejaCadastrarEspada = await rl.question("Deseja cadastrar espadas?(sim/não) ");
+
+            }
             if (desejaCadastrarEspada === "sim"){
                 
                 quantidadeCadastro = await rl.question("Deseja casatrar 1 ou 5 espadas?(1/5) ");
+                while (quantidadeCadastro !== "1" && quantidadeCadastro !== "5"){
+
+                    console.log("[ERRO] digite um número valido")
+                    quantidadeCadastro = await rl.question("Deseja casatrar 1 ou 5 espadas?(1/5) ");
+
+                }
 
                 if (quantidadeCadastro === "1"){
 
@@ -116,15 +128,37 @@ async function executar() {
                 
                 console.log("----------------------------------")
                 let nomeEspada = await rl.question("Qual o nome da Espada? ");
+                while (nomeEspada === ""){
+
+                    console.clear();
+                    console.log("----------------------------------")
+                    console.log("[ERRO] Digite novamente...")
+                    nomeEspada = await rl.question("Qual o nome da Espada? ");
+                }
                 console.log("----------------------------------")
                 let preco = Number(await rl.question("Qual é o preço da espada? "));
+                while (preco === "" || isNaN(Number(preco)) || Number(preco) <= 0){
+
+                    console.clear();
+                    console.log("----------------------------------")
+                    console.log("[ERRO] Digite novamente...")
+                    preco = Number(await rl.question("Qual é o preço da espada? "));
+                }
                 console.log("----------------------------------")
-                let estoque = Number(await rl.question("Quantidade de espadas no estoque? "));
+                let estoqueEntrada = Number(await rl.question("Quantidade de espadas no estoque? "));
+                while (estoqueEntrada === "" || isNaN(Number(estoqueEntrada)) || Number(estoqueEntrada) < 0){
+
+                    console.clear();
+                    console.log("----------------------------------")
+                    console.log("[ERRO] Digite novamente...")
+                    estoqueEntrada = Number(await rl.question("Quantidade de espadas no estoque? "));
+
+                }
                 console.log("----------------------------------")
 
                 listaEspada.push (nomeEspada);
                 precoEspada.push (preco);
-                Quantidadeestoque.push (estoque);
+                Quantidadeestoque.push (estoqueEntrada);
                 console.log(`${nomeEspada} cadastrada com sucesso`);
 
                 await pausar();}
@@ -139,15 +173,39 @@ async function executar() {
 
                         console.log("----------------------------------")
                         let nomeEspada = await rl.question("Qual o nome da Espada? ");
+                        while (nomeEspada === ""){
+
+                        console.clear();
+                        console.log("----------------------------------")
+                        console.log("[ERRO] Digite novamente...")
+                        nomeEspada = await rl.question("Qual o nome da Espada? ");
+
+                        }
                         console.log("----------------------------------")
                         let preco = Number(await rl.question("Qual é o preço da espada? "));
+                         while (preco === "" || isNaN(Number(preco)) || Number(preco) <= 0){
+
+                        console.clear();
                         console.log("----------------------------------")
-                        let estoque = Number(await rl.question("Quantidade de espadas no estoque: "));
+                        console.log("[ERRO] Digite novamente...")
+                        preco = Number(await rl.question("Qual é o preço da espada? "));
+
+                        }
+                        console.log("----------------------------------")
+                        let estoqueEntrada = Number(await rl.question("Quantidade de espadas no estoque: "));
+                        while (estoqueEntrada === "" || isNaN(Number(estoqueEntrada)) || Number(estoqueEntrada) < 0){
+
+                        console.clear();
+                        console.log("----------------------------------")
+                        console.log("[ERRO] Digite novamente...")
+                        estoqueEntrada = Number(await rl.question("Quantidade de espadas no estoque? "));
+
+                        }
                         console.log("----------------------------------")
 
                         listaEspada.push (nomeEspada);
                         precoEspada.push (preco);
-                        Quantidadeestoque.push (estoque);
+                        Quantidadeestoque.push (estoqueEntrada);
                         console.log(`${nomeEspada} cadastrada com sucesso`);
 
                         await pausar();
